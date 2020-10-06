@@ -1,0 +1,60 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.5cm,\VAR{orientation}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{alltt}
+\BLOCK{if font}
+\usepackage\BLOCK{if fontoptions}[\VAR{fontoptions}]\BLOCK{endif}{\VAR{font}}
+\BLOCK{endif}
+
+\def\newpage{} % ignore page breaks
+\def\sci{}     % what is this even
+\def\textrussian#1{\foreignlanguage{russian}{#1}}
+\def\includegraphics#1{} %ignore images
+
+\newcommand{\recipetitle}[1]{\begin{center}\textbf{\LARGE{#1}}\end{center}}
+\newcommand{\alttitle}[1]{\vspace{-0.5cm}\begin{center}\textbf{\large{(#1)}}\end{center}}
+\newcommand{\firstline}[1]{}
+\newenvironment{recipe}{
+	\hspace{1cm}
+	\setlength{\parindent}{0pt}
+}{
+
+}
+\newenvironment{recipemeta}{
+	\begingroup
+	\begin{alltt}
+	\normalfont
+	\scriptsize
+}{
+	\end{alltt}
+	\endgroup
+}
+\newenvironment{recipetext}{
+	\begingroup
+	\begin{alltt}
+	\normalfont
+}{
+	\end{alltt}
+	\endgroup
+}
+\newenvironment{recipenotes}{
+	\begingroup
+	\begin{alltt}
+	\normalfont
+	\scriptsize
+}{
+	\end{alltt}
+	\endgroup
+}
+
+\pagestyle{empty}
+
+\begin{document}
+	\begin{multicols*}{\VAR{cols}}
+	\BLOCK{for recipe in recipes}
+		\VAR{recipe.tex}
+	\BLOCK{endfor}
+	\end{multicols*}
+\end{document}

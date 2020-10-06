@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "dependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "babelify": "latest",
+    "browserify": "latest",
+    "uglify-js": "latest"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+          ]
+        }
+      ]
+    ]
+  }
+}
